@@ -26,7 +26,7 @@ class ListFragment:Fragment() {
         binding.rvHeroes.adapter=adapter
         adapter.selectedItem().observe(viewLifecycleOwner,{
             viewmodel.selected(it)
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_container, DetailsFragment())?.addToBackStack("fragmentDetails")?.commit()
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_container, DetailFragment())?.addToBackStack("fragmentDetails")?.commit()
         })
         viewmodel.heroes.observe(viewLifecycleOwner,{
             adapter.update(it)
