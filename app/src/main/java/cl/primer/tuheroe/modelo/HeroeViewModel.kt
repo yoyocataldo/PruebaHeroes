@@ -2,8 +2,11 @@ package cl.primer.tuheroe.modelo
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cl.primer.tuheroe.Heroe
 import kotlinx.coroutines.launch
 
 class HeroeViewModel: ViewModel() {
@@ -16,6 +19,9 @@ class HeroeViewModel: ViewModel() {
             repositorio.getHeroes()
         }
     }
-    fun a(){
+    fun selected(): LiveData<Heroe> = selected
+    private val selected=MutableLiveData<Heroe>()
+    fun selected(heroe:Heroe){
+        selected.value=heroe
 }
 }

@@ -13,6 +13,7 @@ class DataBase {
 
         @Query("SELECT * FROM superhero_table")
         fun getHeroes(): LiveData<List<Heroe>>
+
     }
 
     @Database(entities=[Heroe::class], version=1)

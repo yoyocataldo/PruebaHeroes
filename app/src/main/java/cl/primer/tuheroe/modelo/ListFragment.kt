@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import cl.primer.tuheroe.R
 import cl.primer.tuheroe.databinding.FragmentListBinding
 
 
@@ -23,11 +24,15 @@ class ListFragment:Fragment() {
         binding.rvHeroes.layoutManager=LinearLayoutManager(context)
         val adapter=HeroeAdapter()
         binding.rvHeroes.adapter=adapter
+        adapter.selectedItem().observe(viewLifecycleOwner,{
+            viewmodel.selected(it)
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_container, DetailsFragment())?.addToBackStack("fragmentDetails")?.commit()
+        })
         viewmodel.heroes.observe(viewLifecycleOwner,{
             adapter.update(it)
         })
 
-viewmodel.a()
+
 return binding.root
     }
 

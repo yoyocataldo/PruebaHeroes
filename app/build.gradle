@@ -69,6 +69,7 @@ dependencies {
         // Images
         implementation "io.coil-kt:coil:1.1.1"
         implementation "io.coil-kt:coil-svg:1.1.1"
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
         //Test
         testImplementation 'junit:junit:4.+'
